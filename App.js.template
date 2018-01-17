@@ -1,0 +1,2 @@
+import App from "<||package||>";
+export default App;
