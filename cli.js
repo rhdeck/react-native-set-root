@@ -1,9 +1,30 @@
 #!/usr/bin/env node
 const rnsr = require("./index");
-const modulename = process.argv[2];
-if (!modulename) {
-  console.log("Usage: react-native-set-root <modulename>");
-  process.exit();
-}
+const commander = require("commander");
+const cp = require("child_process");
+const Path = require("path");
+commander
+  .arguments("<modulename>")
+  .description("Set the root to description")
+  .option(
+    "-p --promote",
+    "Promote peer dependencies after setting module root"
+  );
+commander.parse(process.argv);
+const modulename = commander.args[0];
+
 rnsr(modulename, process.cwd());
 console.log("Successfully set the root module to " + modulename);
+
+if (commander.args.promote) {
+  cp.spawnSync("promote-peer-dependencies", [modulename], {
+    stdio: "inherit",
+    env: {
+      ...process.env,
+      path:
+        process.env.path +
+        ";" +
+        Path.join(process.cwd(), "node_modules", ".bin")
+    }
+  });
+}

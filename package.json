@@ -1,8 +1,7 @@
 {
   "name": "react-native-set-root",
   "version": "1.0.0",
-  "description":
-    "Set the root application in react native (via replacing the App.js file) (both expo and native apps)",
+  "description": "Set the root application in react native (via replacing the App.js file) (both expo and native apps)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,5 +16,8 @@
     "url": "https://github.com/rhdeck/react-native-set-root/issues"
   },
   "homepage": "https://github.com/rhdeck/react-native-set-root#readme",
-  "bin": "cli.js"
+  "bin": "cli.js",
+  "dependencies": {
+    "promote-peer-dependencies": "^1.5.1"
+  }
 }
