@@ -16,7 +16,8 @@ const modulename = commander.args[0];
 rnsr(modulename, process.cwd());
 console.log("Successfully set the root module to " + modulename);
 
-if (commander.args.promote) {
+if (commander.promote) {
+  console.log("Promoting peer dependencies...");
   cp.spawnSync("promote-peer-dependencies", [modulename], {
     stdio: "inherit",
     env: {
