@@ -1,6 +1,6 @@
 {
   "name": "react-native-set-root",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Set the root application in react native (via replacing the App.js file) (both expo and native apps)",
   "main": "index.js",
   "scripts": {
